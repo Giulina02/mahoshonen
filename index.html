@@ -143,8 +143,22 @@
             aside,  #link-title{ display: none;}
             #logo-nav { display: block;}
         }
+        
 
-        @media screen and (max-width: 700px) and (orientation: portrait){
+        @media screen and (max-width: 800px) and (orientation: landscape) {
+            body {
+                background-size: 320%;
+                background-position: initial;
+            }
+
+            #main-container {
+                grid-template-columns: 550px 550px 450px;
+                margin-top: 5em;
+            }
+            aside, main { display: flex;}
+        }
+
+        @media screen and (max-width: 600px) and (orientation: portrait){
             #body {
                 display: block;
             }

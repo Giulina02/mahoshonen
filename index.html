@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maho Shonen</title>
+    <link rel="shortcut icon" href="img/bibi-favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* ---------------------- LAYOUT */
+        #main-container {
+            height: max-content;
+            display: grid;
+            grid-template-columns: 550px 550px 450px;
+            column-gap: 5em;
+            align-items: center;
+        }
+
+        /* ---------------------- CENTER */
+        main {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1em;
+        }
+
+        #logo {
+            z-index: 3;
+            width: 130%;
+            margin-right: 3em;
+            image-rendering: pixelated;
+            top: 0;
+        }
+
+        #summary {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5em;
+            height: 310px;
+            line-height: 1.6em;
+            text-indent: 1.5em;
+            gap: 1em;
+        }
+
+        #summary > div { overflow-y: auto; padding: 0.5em ;}
+        #summary > div > p { margin: 0;}
+        
+        #switch-lang {
+            background-color: white;
+            width: 30%;
+            font-size: large;
+            padding: .5em;
+        }
+
+        /* ---------------------- NAV */
+        nav {
+            display: grid;
+            position: relative;
+            height: 90%;
+            align-content: center;
+            place-items: center;
+            margin-top: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 1em;
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+
+        li { place-items: center;}
+
+        li > a {
+            display: flex;
+            align-items: center;
+        }
+
+        /* ---------- NAV IMAGES*/
+        #link-title {
+            position: absolute;
+            top: -5.5em;
+            right: -3em;
+            width: 95%;
+        }
+
+        #guards {
+            z-index: 3;
+            position: absolute;
+            bottom: -3.5em;
+            right: -4em;
+        }
+
+        #guards:hover { cursor: pointer;}
+
+        /* ---------------------- ASIDE */
+        aside {
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        #paper {
+            position: absolute;
+            background-image: url("img/paper.png");
+            left: -4.5em;
+            top: -1em;
+        }
+
+        #character {
+            width: 100%;
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container">
+        <aside> <!-- LEFT -->
+            <img id="paper" src="img/paper.png">
+            <img id="character" src="img/main-characters.png">
+        </aside>
+
+        
+        <main> <!-- CENTER -->
+            <img id="logo" src="img/logo.png" draggable="false">
+
+            <section id="summary" class="violet-border">
+                <button id="switch-lang" class="blue-btn btn"><span lang="en">English</span><span lang="es">Español</span></button>
+
+                <div lang="en">
+                    <p>The idea of becoming a magical girl might sound cool, unless you are not a girl, but an adult man trying to balance an already turbulent life. This is the situation Andrés and Mariano find themselves in, surviving the chaos of their daily lives, while also joining other magical girls to fight against the monsters that hid in the corners of the city.</p>
+                </div>
+
+                <div lang="es">
+                    <p>La idea de ser una chica mágica puede parecer genial, excepto cuando no eres una chica, si no un hombre adulto tratando de balancear una ya de por si turbulenta vida. Esta es la situación en la que Andrés y Mariano se encuentran, sobreviviendo el caos de su vida diaria mientras acompañan a otras chicas mágicas a pelear contra los monstruos que se ocultan entre los callejones de la ciudad.</p>
+                </div>
+            </section>
+
+            <footer>
+                <p>Copyright &copy; 2025 <a href="https://yananaua.carrd.co/">Yana</a> & <a href="https://natflorezzinfo.carrd.co/">Nat</a> ⭐ Web Dev by <a href="https://alyulina.carrd.co/">Alyulina</a></p>
+            </footer>
+        </main>
+
+        <nav class="violet-border"> <!-- RIGHT -->
+            <img id="link-title" src="img/links.png" draggable="false">
+            <img id="guards" src="img/guards.png" draggable="false">
+
+            <ul>
+                <li >
+                    <a href="https://tapas.io/series/Maho-Shonen" class="violet-btn btn">
+                    <img src="img/head-andres.png" class="img-btn">Read on Tapas</a></li>
+                <li>
+                    <a href="https://tapas.io/series/Maho-Shonen-Esp" class="violet-btn btn">
+                    <img src="img/head-bibi.png" class="img-btn">Lee en Tapas</a></li>
+                <li>
+                    <a href="https://www.webtoons.com/en/canvas/maho-shonen/list?title_no=877937" class="pink-btn btn">
+                    <img src="img/head-mariano.png" class="img-btn">Read on Webtoon</a></li>
+                <li>
+                    <a href="https://www.webtoons.com/es/canvas/maho-shonen/list?title_no=877944" class="pink-btn btn">
+                    <img src="img/head-misifus.png" class="img-btn">Lee en Webtoon</a></li>
+                <li>
+                    <a href="https://www.patreon.com/yananat" class="blue-btn btn">Patreon</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        // GUARDS
+        const squeaky = new Audio("sounds/squeaky.mp3");
+        const guards = document.getElementById("guards");
+        
+        guards.addEventListener( "click", () => {
+            squeaky.play();
+            guards.style.animation = "squeashy .6s ease";
+            setTimeout(() => {
+                guards.style.animation = "none";
+            }, 600);
+        })
+
+        // CHANGE LANGUAGE
+        $('[lang="es"]').hide();
+
+        $('#switch-lang').click(function() {
+            $('[lang="es"]').toggle();
+            $('[lang="en"]').toggle();
+        });
+    </script>
+
+    <script src="btn.js"></script>
+</body>
+</html>

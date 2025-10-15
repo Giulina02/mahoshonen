@@ -1,0 +1,165 @@
+/* ---------------------- COLOURS
+VIOLET rgb(146, 105, 247)
+LILAC rgb(198, 171, 255)
+
+HOT PINK rgb(255, 104, 187)
+LIGHT PINK rgb(255, 172, 218)
+
+BLUE rgb(75, 160, 253)
+LIGHTBLUE rgb(174,233,255)
+
+VIOLET for BORDER rgba(166, 114, 240)
+BACKGROUND rgb(240, 211, 255)
+
+BLACK TEXT rgba(22, 11, 68)
+WHITE TEXT just WHITE
+*/
+
+#main-container, main, nav, aside, div, img, section { 
+    /* border: 1px solid red; */
+}
+
+/* ---------------------- LAYOUT */
+body {
+    background-image: url("img/background2.png");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: grid;
+    place-items: center;
+}
+
+footer {
+    background: #ffffff;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 3px transparent;
+}
+footer > p > a { color: rgb(146, 105, 247);}
+footer > p > a:hover { color: rgb(255, 104, 187); font-size: 1.05em; transition: .1s;}
+
+
+/* ---------------------- FONTS */
+@font-face {
+    font-family: Fredoka;
+    src: url("resources/Fredoka-VariableFont_wdth\,wght.ttf");
+}
+
+* { color: rgba(22, 11, 68);}
+
+body {
+    font-family: Fredoka;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+a { text-decoration: none;}
+
+/* ---------------------- MISC */
+::-webkit-scrollbar {
+    width: 15px;
+}
+ 
+::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, rgb(174,233,255), rgb(75, 160, 253), rgb(174,233,255));
+    border: 1px solid rgb(75, 160, 253);
+}
+
+::selection {
+    color: white;
+    background-color: rgba(166, 114, 240);
+}
+::-moz-selection {
+    color: #8da332;
+    background-color: #dbe4f0;
+}
+
+.violet-border {
+    background-color: rgb(240, 211, 255);
+    border: 10px solid rgba(166, 114, 240);
+    border-radius: 50px;
+}
+
+.pink-border {
+    background-color: rgb(240, 211, 255);
+    border: 10px solid rgba(166, 114, 240);
+    border-radius: 50px;
+}
+
+/* ---------------------- BUTTONS */
+.btn {
+    position: relative;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50px;
+    padding: 1em;
+    width: 100%;
+}
+
+.btn > span, .btn {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: white;
+    justify-content: center;
+    text-shadow: 1.5px 1.5px 1.5px rgba(22, 11, 68);
+}
+
+.img-btn {
+    position: absolute;
+    z-index: 2;
+    width: 120px;
+    top: -1.5em;
+    left: -3em;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    transition: .15s;
+    cursor: pointer;
+}
+
+.btn:hover > .img-btn {
+    animation: side2side .5s infinite;
+}
+.violet-btn {
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(146, 105, 247), rgb(198, 171, 255));
+    border-color: rgb(146, 105, 247);
+}
+
+.pink-btn {
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(255, 104, 187), rgb(255, 172, 218));
+    border-color: rgb(255, 104, 187);
+}
+
+.blue-btn {
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(75, 160, 253), rgb(174,233,255));
+    border-color: rgb(75, 160, 253);
+}
+
+/* ---------------------- ANIMATIONS */
+@keyframes side2side {
+    0% { transform: rotate(-3deg);}
+    50% { transform: rotate(-3deg);}
+    51% { transform: rotate(3deg);}
+    100% { transform: rotate(3deg);}
+}
+
+@keyframes squeashy {
+    0% { transform: scale(1);}
+    30% { transform: scale(.8)}
+    60% { transform: scale(1.1)}
+    /* 80% { transform: scale(.8);} */
+    100% { transform: scale(1);}
+}
+
+@keyframes float {
+    0% { transform: translateY(1em);}
+    50% { transform: translateY(-1em);}
+    100% { transform: translateY(1em);}
+}

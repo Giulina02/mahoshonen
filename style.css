@@ -23,6 +23,7 @@ WHITE TEXT just WHITE
 body {
     background-image: url("img/background2.png");
     background-size: cover;
+    background-position: center;
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -34,6 +35,7 @@ footer {
     background: #ffffff;
     -webkit-background-clip: text;
     -webkit-text-stroke: 3px transparent;
+    text-align: center;
 }
 footer > p > a { color: rgb(146, 105, 247);}
 footer > p > a:hover { color: rgb(255, 104, 187); font-size: 1.05em; transition: .1s;}
@@ -55,7 +57,7 @@ body {
 
 a { text-decoration: none;}
 
-/* ---------------------- MISC */
+/* ---------------------- SCROLLBAR */
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -71,6 +73,7 @@ a { text-decoration: none;}
     border: 1px solid rgb(75, 160, 253);
 }
 
+/* ---------------------- SELECTION */
 ::selection {
     color: white;
     background-color: rgba(166, 114, 240);
@@ -80,13 +83,8 @@ a { text-decoration: none;}
     background-color: #dbe4f0;
 }
 
+/* ---------------------- DEFAULT BORDER */
 .violet-border {
-    background-color: rgb(240, 211, 255);
-    border: 10px solid rgba(166, 114, 240);
-    border-radius: 50px;
-}
-
-.pink-border {
     background-color: rgb(240, 211, 255);
     border: 10px solid rgba(166, 114, 240);
     border-radius: 50px;
